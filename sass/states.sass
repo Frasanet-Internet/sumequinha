@@ -1,0 +1,28 @@
+
+@import './_colors.sass'
+
+div 
+  .data_hora_ultima_msg 
+    color: white !important
+    font: 
+      weight: bold !important
+      size: 1.1em !important
+
+@mixin background($color) 
+  background-color: linear-gradient(90deg, $opa 10%, $color 100%) !important
+
+div 
+  .b_selecionado 
+    @include background($preto)
+  .b_com_nova_mensagem 
+    @include background($verde)
+  .b_ignorado 
+    @include background($cinza)
+  .b_expirado 
+    @include background($vermelho)
+  .b_inativo_visualizado 
+    @include background($amarelo)
+  .b_inativo 
+    @include background($salmao)
+  .b_valido 
+    @include background($azul)
