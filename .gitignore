@@ -2,6 +2,10 @@
 # ignorar diretório de teste
 opa_teste/*
 
+# ignorar arquivos temporários
+*.todo
+*.ram
+
 # Created by https://www.toptal.com/developers/gitignore/api/sass,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=sass,vim
 
