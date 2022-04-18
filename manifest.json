@@ -11,8 +11,10 @@
       "64": "img/frasachanu_64.png",
       "128": "img/frasachanu_128.png",
       "1024": "img/frasachanu_1024.png"
-    },
-    "default_popup": "popup.html"
+    }
+  },
+  "background": {
+    "service_worker": "view/inject_css.js"
   },
   "permissions": [
     "activeTab",

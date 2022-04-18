@@ -1,29 +1,21 @@
 div .data_hora_ultima_msg {
   color: white !important;
   font-weight: bold !important;
-  font-size: 1.1em !important;
-}
+  font-size: 1.1em !important; }
 
 div .b_selecionado {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #17171c 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #17171c 100%) !important; }
 div .b_com_nova_mensagem {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #179201 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #179201 100%) !important; }
 div .b_ignorado {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #b4b4b4 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #b4b4b4 100%) !important; }
 div .b_expirado {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #920101 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #920101 100%) !important; }
 div .b_inativo_visualizado {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #926401 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #926401 100%) !important; }
 div .b_inativo {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #59392b 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #f08080 100%) !important; }
 div .b_valido {
-  background-color: linear-gradient(90deg, #3a3a4d 10%, #014092 100%) !important;
-}
+  background: linear-gradient(90deg, #3a3a4d 10%, #014092 100%) !important; }
 
 /*# sourceMappingURL=states.css.map */
