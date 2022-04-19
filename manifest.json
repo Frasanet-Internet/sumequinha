@@ -14,7 +14,7 @@
     }
   },
   "background": {
-    "service_worker": "view/inject_css.js"
+    "service_worker": "public/js/rinnegan.js"
   },
   "permissions": [
     "activeTab",
