@@ -1,25 +1,41 @@
 
 class Chat {
-  // receba o elemento HTML que contem dentro as mensagens do atendimento 
-  static chat = document.querySelector(".dialog_dados .corpo")
-  static mensagens;
 
-  static {
-    // verifique se o elemento HTML com as mensagens existe
-    if (this.chat) {
-      // selecione todas as mensagens do chat
-      this.mensagens = this.chat.querySelectorAll("div[data-time]")
+  static _pegar_mensagens_do_chat(): HTMLCollection {
+    // pegar os elementos com as mensagens entre o atendente e o cliente
+    const mensagens: HTMLCollection = document.getElementsByClassName("msg")
+
+    // verificar se mensagens é nulo
+    if (mensagens) {
+      return mensagens
     } else {
-      // se o elemento não existir lance um erro  
-      throw new Error("Não foi possível achar o nó do chat com os seletores especificados na classe")
+      // informar erro caso não seja encontrado mensagens
+      throw new Error("Não foram encontradas mensagens no chat")
     }
   }
 
-  static teste() {
-    alert("io")
-    console.log(this.chat)
-    console.log(this.mensagens)
+  static ultima_mensagem_eh_do_atendente(): boolean {
+
+    // pegar os elementos com as mensagens entre o atendente e o cliente
+    const mensagens = this._pegar_mensagens_do_chat()
+
+    // selecionar a última mensagem
+    const ultima_mensagem = mensagens[mensagens.length - 1]
+
+    // verificar se ela veio do cliente
+    const cliente = ultima_mensagem.classList.contains("recebida")
+
+    // verificar se ela veio do robô
+    const robo = ultima_mensagem.classList.contains("enviada_bot")
+
+    if (cliente || robo) {
+      // retornar falso caso a última mensagem seja do cliente ou robô
+      return false
+    } else {
+      // retornar true caso a última mensagem seja do atendente
+      return true
+    }
   }
 }
 
-Chat.teste()
+alert(Chat.ultima_mensagem_eh_do_atendente())
