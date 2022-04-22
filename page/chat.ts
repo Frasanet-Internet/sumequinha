@@ -39,5 +39,3 @@ class Chat {
     }
   }
 }
-
-alert(Chat.ultima_mensagem_do_atendente_foi_vista())
