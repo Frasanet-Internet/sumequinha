@@ -37,9 +37,20 @@ class Chat {
 
   static ultima_mensagem_foi_vista(): boolean {
 
-    return true
+    // selecionar a última mensagem
+    const ultima_mensagem = this._pegar_ultima_msg()
 
+    // selecionar elemento de status dentro da mensagem
+    const status_mensagem = ultima_mensagem.querySelector("#message-status")
+
+    // verificar se mensagens é nulo
+    if (status_mensagem) {
+      return status_mensagem.getAttribute("title")?.toLowerCase() == "mensagem lida"
+    } else {
+      // informar erro caso não seja encontrado o status da mensagem
+      throw new Error("Não foi possível achar o elemento de status dentro da última mensagem")
+    }
   }
 }
 
-alert(Chat.ultima_mensagem_eh_do_atendente())
+alert(Chat.ultima_mensagem_foi_vista())
