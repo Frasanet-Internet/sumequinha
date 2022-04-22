@@ -15,42 +15,29 @@ class Chat {
     }
   }
 
-  static ultima_mensagem_eh_do_atendente(): boolean {
+  static ultima_mensagem_do_atendente_foi_vista(): boolean {
+    try {
+      // selecionar a última mensagem
+      const ultima_mensagem = this._pegar_ultima_msg()
 
-    // selecionar a última mensagem
-    const ultima_mensagem = this._pegar_ultima_msg()
+      // selecionar elemento de status dentro da mensagem
+      const status_mensagem = ultima_mensagem.querySelector("#message-status")
 
-    // verificar se ela veio do cliente
-    const cliente = ultima_mensagem.classList.contains("recebida")
-
-    // verificar se ela veio do robô
-    const robo = ultima_mensagem.classList.contains("enviada_bot")
-
-    if (cliente || robo) {
-      // retornar falso caso a última mensagem seja do cliente ou robô
+      // verificar se mensagens é nulo
+      if (status_mensagem) {
+        // retornar true se o status da mensagem indicar que ela foi lida
+        return status_mensagem.getAttribute("title")?.toLowerCase() == "mensagem lida"
+      } else {
+        // retornar false caso a mensagem não tenha o elemento de status
+        // pois nesse caso a mensagem não é do atendente
+        return false
+      }
+    } catch {
+      // se der erro é porque o chat ainda não foi carregado na tela, 
+      // nesse caso apenas retorne false.
       return false
-    } else {
-      // retornar true caso a última mensagem seja do atendente
-      return true
-    }
-  }
-
-  static ultima_mensagem_foi_vista(): boolean {
-
-    // selecionar a última mensagem
-    const ultima_mensagem = this._pegar_ultima_msg()
-
-    // selecionar elemento de status dentro da mensagem
-    const status_mensagem = ultima_mensagem.querySelector("#message-status")
-
-    // verificar se mensagens é nulo
-    if (status_mensagem) {
-      return status_mensagem.getAttribute("title")?.toLowerCase() == "mensagem lida"
-    } else {
-      // informar erro caso não seja encontrado o status da mensagem
-      throw new Error("Não foi possível achar o elemento de status dentro da última mensagem")
     }
   }
 }
 
-alert(Chat.ultima_mensagem_foi_vista())
+alert(Chat.ultima_mensagem_do_atendente_foi_vista())
