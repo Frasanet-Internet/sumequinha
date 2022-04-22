@@ -1,11 +1,12 @@
 "use strict";
 class Chat {
-    static _pegar_mensagens_do_chat() {
+    static _pegar_ultima_msg() {
         // pegar os elementos com as mensagens entre o atendente e o cliente
         const mensagens = document.getElementsByClassName("msg");
         // verificar se mensagens é nulo
         if (mensagens) {
-            return mensagens;
+            // selecionar a última mensagem
+            return mensagens[mensagens.length - 1];
         }
         else {
             // informar erro caso não seja encontrado mensagens
@@ -13,10 +14,8 @@ class Chat {
         }
     }
     static ultima_mensagem_eh_do_atendente() {
-        // pegar os elementos com as mensagens entre o atendente e o cliente
-        const mensagens = this._pegar_mensagens_do_chat();
         // selecionar a última mensagem
-        const ultima_mensagem = mensagens[mensagens.length - 1];
+        const ultima_mensagem = this._pegar_ultima_msg();
         // verificar se ela veio do cliente
         const cliente = ultima_mensagem.classList.contains("recebida");
         // verificar se ela veio do robô
@@ -29,6 +28,9 @@ class Chat {
             // retornar true caso a última mensagem seja do atendente
             return true;
         }
+    }
+    static ultima_mensagem_foi_vista() {
+        return true;
     }
 }
 alert(Chat.ultima_mensagem_eh_do_atendente());

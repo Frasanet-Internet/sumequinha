@@ -1,13 +1,14 @@
 
 class Chat {
 
-  static _pegar_mensagens_do_chat(): HTMLCollection {
+  static _pegar_ultima_msg(): Element {
     // pegar os elementos com as mensagens entre o atendente e o cliente
     const mensagens: HTMLCollection = document.getElementsByClassName("msg")
 
     // verificar se mensagens é nulo
     if (mensagens) {
-      return mensagens
+      // selecionar a última mensagem
+      return mensagens[mensagens.length - 1]
     } else {
       // informar erro caso não seja encontrado mensagens
       throw new Error("Não foram encontradas mensagens no chat")
@@ -16,11 +17,8 @@ class Chat {
 
   static ultima_mensagem_eh_do_atendente(): boolean {
 
-    // pegar os elementos com as mensagens entre o atendente e o cliente
-    const mensagens = this._pegar_mensagens_do_chat()
-
     // selecionar a última mensagem
-    const ultima_mensagem = mensagens[mensagens.length - 1]
+    const ultima_mensagem = this._pegar_ultima_msg()
 
     // verificar se ela veio do cliente
     const cliente = ultima_mensagem.classList.contains("recebida")
@@ -35,6 +33,12 @@ class Chat {
       // retornar true caso a última mensagem seja do atendente
       return true
     }
+  }
+
+  static ultima_mensagem_foi_vista(): boolean {
+
+    return true
+
   }
 }
 
