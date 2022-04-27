@@ -1,4 +1,3 @@
-"use strict";
 class Chat {
     static _pegar_ultima_msg() {
         // pegar os elementos com as mensagens entre o atendente e o cliente
