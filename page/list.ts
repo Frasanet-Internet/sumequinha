@@ -13,5 +13,3 @@ class Lista {
     }
   }
 }
-
-alert(Lista.nome_do_cliente_selecionado())

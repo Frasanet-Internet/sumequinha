@@ -1,27 +1,16 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 class Data {
-    static set(chave, valor) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const objeto = {};
-            objeto[chave] = valor;
-            yield chrome.storage.local.set(objeto);
-        });
+    // salvar a informação de que a última mensagem do atendente foi lida
+    // usando o nome do cliente como índice
+    static set(nome_cliente, ultima_mensagem_do_atendente_foi_lida) {
+        return localStorage.setItem(nome_cliente, ultima_mensagem_do_atendente_foi_lida);
     }
-    static get(chave) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield chrome.storage.local.get([chave]);
-        });
+    // retornar se a última mensagem do atendente foi lida
+    static get(nome_cliente) {
+        return localStorage.getItem(nome_cliente);
     }
 }
-Data.set("Kenny G", true);
+Data.set("Kenny G", "sim");
+Data.set("Kenny G", "não");
 alert(Data.get("Kenny G"));
 class Chat {
     static _pegar_ultima_msg() {
