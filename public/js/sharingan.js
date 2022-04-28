@@ -4,13 +4,21 @@ class Data {
     static set(nome_cliente, ultima_mensagem_do_atendente_foi_lida) {
         return localStorage.setItem(nome_cliente, ultima_mensagem_do_atendente_foi_lida);
     }
-    // retornar se a última mensagem do atendente foi lida
     static get(nome_cliente) {
-        return localStorage.getItem(nome_cliente);
+        // pegar o valor armazenado usando o nome do cliente como índice
+        const valor = localStorage.getItem(nome_cliente);
+        // verificar se o valor retornado é nulo
+        if (valor) {
+            // retornar se a última mensagem do atendente foi lida
+            return valor;
+        }
+        else {
+            // caso o índice não exista no armazenamento local crie ele usando "não" como padrão
+            this.set(nome_cliente, "não");
+            return "não";
+        }
     }
 }
-Data.set("Kenny G", "sim");
-Data.set("Kenny G", "não");
 alert(Data.get("Kenny G"));
 class Chat {
     static _pegar_ultima_msg() {
