@@ -23,5 +23,3 @@ class Data {
     }
   }
 }
-
-alert(Data.get("Kenny G"))
