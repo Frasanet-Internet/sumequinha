@@ -6,4 +6,9 @@ chrome.action.onClicked.addListener((tab) => {
     target: { tabId: tab.id },
     files: ["public/js/sharingan.js"],
   })
+  // injete os estilos css dentro da aba atual
+  chrome.scripting.insertCSS({
+    target: { tabId: tab.id },
+    files: ["public/css/states.css"],
+  })
 })

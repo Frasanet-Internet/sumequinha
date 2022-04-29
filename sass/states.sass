@@ -1,6 +1,8 @@
 
+// importar as cores
 @import './_colors.sass'
 
+// aumentar o tamanho da fonte no elemento que mostra o horário do atendimento
 div 
   .data_hora_ultima_msg 
     color: white !important
@@ -8,9 +10,11 @@ div
       weight: bold !important
       size: 1.1em !important
 
+// definir a cor do atendimento usando um gradiente entre a cor do opa e a cor desejada
 @mixin background($color) 
   background: linear-gradient(90deg, $opa 10%, $color 100%) !important
 
+// definir as classes e as cores correspondentes
 div 
   .b_selecionado 
     @include background($preto)
