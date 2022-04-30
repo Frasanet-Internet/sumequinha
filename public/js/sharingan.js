@@ -1,3 +1,25 @@
+class Bichanu {
+    // O atendimento...
+    static _esta_selecionado(atendimento) {
+        // retornar se o elemento está selecionado
+        return atendimento.classList.contains("selected");
+    }
+    static pegar_informacoes_do_atendimento(atendimento) {
+        const informacoes_do_atendimento = {
+            estado: "valido",
+            selecionado: this._esta_selecionado(atendimento)
+        };
+        return informacoes_do_atendimento;
+    }
+}
+// teste
+const chat_elementos = document.getElementsByClassName("chat");
+const array = [];
+for (let index = 0; index < chat_elementos.length; index++) {
+    const elemento_atual = chat_elementos[index];
+    array.push(Bichanu.pegar_informacoes_do_atendimento(elemento_atual));
+}
+window.console.log(array);
 class Data {
     // salvar a informação de que a última mensagem do atendente foi lida
     // usando o nome do cliente como índice
@@ -160,8 +182,3 @@ ListView.CLASSES_ATENDIMENTO = [
     "bs_inativo",
     "bs_valido",
 ];
-const chat_elementos = document.getElementsByClassName("chat");
-for (let index = 0; index < chat_elementos.length; index++) {
-    const elemento_atual = chat_elementos[index];
-    ListView.adicionar_classe_correspondente_ao_estado(elemento_atual, "expirado", true);
-}

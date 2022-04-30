@@ -62,10 +62,3 @@ class ListView {
     }
   }
 }
-
-const chat_elementos = document.getElementsByClassName("chat")
-
-for (let index = 0; index < chat_elementos.length; index++) {
-  const elemento_atual = chat_elementos[index]
-  ListView.adicionar_classe_correspondente_ao_estado(elemento_atual, "expirado", true)
-}
