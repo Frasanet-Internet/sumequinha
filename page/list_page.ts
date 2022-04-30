@@ -1,5 +1,5 @@
 
-class Lista {
+class ListPage {
   static nome_do_cliente_selecionado(): string {
     // encontrar o elemento que contém o nome do cliente e está selecionado
     const elemento_titulo = document.querySelector(".list_dados .selected .title")

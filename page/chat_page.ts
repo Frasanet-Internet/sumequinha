@@ -1,5 +1,5 @@
 
-class Chat {
+class ChatPage {
 
   static _pegar_ultima_msg(): Element {
     // pegar os elementos com as mensagens entre o atendente e o cliente

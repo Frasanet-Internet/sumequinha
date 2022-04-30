@@ -50,7 +50,7 @@ class Time {
         return resultado_total_em_minutos;
     }
 }
-class Chat {
+class ChatPage {
     static _pegar_ultima_msg() {
         // pegar os elementos com as mensagens entre o atendente e o cliente
         const mensagens = document.getElementsByClassName("msg");
@@ -89,7 +89,7 @@ class Chat {
         }
     }
 }
-class Lista {
+class ListPage {
     static nome_do_cliente_selecionado() {
         // encontrar o elemento que contém o nome do cliente e está selecionado
         const elemento_titulo = document.querySelector(".list_dados .selected .title");
