@@ -50,8 +50,6 @@ class Time {
         return resultado_total_em_minutos;
     }
 }
-const hora1 = Time.converter_texto_em_hora("12:00");
-alert(Time.diferenca_hora_atual(hora1) / 60);
 class Chat {
     static _pegar_ultima_msg() {
         // pegar os elementos com as mensagens entre o atendente e o cliente

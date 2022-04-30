@@ -40,6 +40,3 @@ class Time {
     return resultado_total_em_minutos
   }
 }
-
-const hora1 = Time.converter_texto_em_hora("12:00")
-alert(Time.diferenca_hora_atual(hora1) / 60)

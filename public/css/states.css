@@ -4,26 +4,41 @@ div .data_hora_ultima_msg {
   font-size: 1.1em !important;
 }
 
-div .b_selecionado {
-  background: linear-gradient(90deg, #3a3a4d 10%, #17171c 100%) !important;
-}
 div .b_com_nova_mensagem {
-  background: linear-gradient(90deg, #3a3a4d 10%, #179201 100%) !important;
+  background: linear-gradient(135deg, #179201 0 50%, #3a3a4d 0 100%) !important;
 }
 div .b_ignorado {
-  background: linear-gradient(90deg, #3a3a4d 10%, #b4b4b4 100%) !important;
+  background: linear-gradient(135deg, #b4b4b4 0 50%, #3a3a4d 0 100%) !important;
 }
 div .b_expirado {
-  background: linear-gradient(90deg, #3a3a4d 10%, #920101 100%) !important;
+  background: linear-gradient(135deg, #920101 0 50%, #3a3a4d 0 100%) !important;
 }
 div .b_inativo_visualizado {
-  background: linear-gradient(90deg, #3a3a4d 10%, #926401 100%) !important;
+  background: linear-gradient(135deg, #926401 0 50%, #3a3a4d 0 100%) !important;
 }
 div .b_inativo {
-  background: linear-gradient(90deg, #3a3a4d 10%, #f08080 100%) !important;
+  background: linear-gradient(135deg, #f08080 0 50%, #3a3a4d 0 100%) !important;
 }
 div .b_valido {
-  background: linear-gradient(90deg, #3a3a4d 10%, #014092 100%) !important;
+  background: linear-gradient(135deg, #014092 0 50%, #3a3a4d 0 100%) !important;
+}
+div .bs_com_nova_mensagem {
+  background: linear-gradient(135deg, #179201 0 50%, #17171c 0 100%) !important;
+}
+div .bs_ignorado {
+  background: linear-gradient(135deg, #b4b4b4 0 50%, #17171c 0 100%) !important;
+}
+div .bs_expirado {
+  background: linear-gradient(135deg, #920101 0 50%, #17171c 0 100%) !important;
+}
+div .bs_inativo_visualizado {
+  background: linear-gradient(135deg, #926401 0 50%, #17171c 0 100%) !important;
+}
+div .bs_inativo {
+  background: linear-gradient(135deg, #f08080 0 50%, #17171c 0 100%) !important;
+}
+div .bs_valido {
+  background: linear-gradient(135deg, #014092 0 50%, #17171c 0 100%) !important;
 }
 
 /*# sourceMappingURL=states.css.map */

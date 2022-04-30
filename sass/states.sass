@@ -10,14 +10,18 @@ div
       weight: bold !important
       size: 1.1em !important
 
-// definir a cor do atendimento usando um gradiente entre a cor do opa e a cor desejada
+// definir a cor do atendimento usando um gradiente entre a cor desejada 
+// e a cor padrão do opa
 @mixin background($color) 
-  background: linear-gradient(90deg, $opa 10%, $color 100%) !important
+  background: linear-gradient(135deg, $color 0 50%, $opa 0 100%) !important
+
+// definir a cor do atendimento usando um gradiente entre a cor desejada 
+// e a cor de atendimento selecionado
+@mixin selected_background($color) 
+  background: linear-gradient(135deg, $color 0 50%, $preto 0 100%) !important
 
 // definir as classes e as cores correspondentes
 div 
-  .b_selecionado 
-    @include background($preto)
   .b_com_nova_mensagem 
     @include background($verde)
   .b_ignorado 
@@ -30,3 +34,17 @@ div
     @include background($salmao)
   .b_valido 
     @include background($azul)
+
+  // atendimento selecionado 
+  .bs_com_nova_mensagem 
+    @include selected_background($verde)
+  .bs_ignorado 
+    @include selected_background($cinza)
+  .bs_expirado 
+    @include selected_background($vermelho)
+  .bs_inativo_visualizado 
+    @include selected_background($amarelo)
+  .bs_inativo 
+    @include selected_background($salmao)
+  .bs_valido 
+    @include selected_background($azul)
