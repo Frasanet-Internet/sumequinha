@@ -1,23 +1,31 @@
 class Bichanu {
     // O atendimento...
     static _esta_selecionado(atendimento) {
-        // retornar se o elemento está selecionado
+        // retornar se o atendimento está selecionado
         return atendimento.classList.contains("selected");
+    }
+    static _tem_nova_mensagem(atendimento) {
+        // pegar o icone whatsapp dentro do atendimento
+        const icone_whatsapp = atendimento.querySelector(".notif .fa-whatsapp");
+        // retornar se o atendimento possui uma nova mensagem do cliente 
+        return icone_whatsapp ? icone_whatsapp.classList.contains("piscar") : false;
     }
     static pegar_informacoes_do_atendimento(atendimento) {
         const informacoes_do_atendimento = {
             estado: "valido",
+            // verificar se o atendimento está selecionado
             selecionado: this._esta_selecionado(atendimento)
         };
         return informacoes_do_atendimento;
     }
 }
 // teste
-const chat_elementos = document.getElementsByClassName("chat");
+const lista_atendimentos = document.querySelector(".list_dados");
+const chat_elementos = lista_atendimentos.getElementsByClassName("chat");
 const array = [];
 for (let index = 0; index < chat_elementos.length; index++) {
     const elemento_atual = chat_elementos[index];
-    array.push(Bichanu.pegar_informacoes_do_atendimento(elemento_atual));
+    array.push(Bichanu._tem_nova_mensagem(elemento_atual));
 }
 window.console.log(array);
 class Data {
