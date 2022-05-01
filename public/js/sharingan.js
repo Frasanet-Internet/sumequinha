@@ -177,6 +177,35 @@ class Bichanu {
         // retornar se o atendimento possui a tag para não encerrar
         return this._tem_a_tag(atendimento, "(bichanu) não encerrar");
     }
+    static _esta_expirado(atendimento) {
+        // verificar se possui a tag de inatividade 
+        if (this._tem_a_tag(atendimento, "(bichanu) aviso inatividade")) {
+            // pegar o texto que mostra o horário do atendimento
+            const texto_horario = this._pegar_horario_atendimento(atendimento);
+            // caso seja um texto em formato de hora válido comparar com horário atual
+            if (this._texto_hora_valido(texto_horario)) {
+                // transformar o texto em um objeto de hora
+                const horario_atendimento = Time.converter_texto_em_hora(texto_horario);
+                // receber a diferença da hora atual com o horário da última mensagem do atendimento
+                const diferenca_do_horario_atual = Time.diferenca_hora_atual(horario_atendimento);
+                if (diferenca_do_horario_atual >= 10) {
+                    // se já tiver se passado 10 minutos retornar que o atendimento está expirado
+                    return true;
+                }
+                else {
+                    // se não, retornar que o atendimento ainda não expirou
+                    return false;
+                }
+            }
+            else {
+                // se não for uma hora válida siguinifica que já se passou mais de um dia
+                // nesse caso retornar que o atendimento está expirado
+                return true;
+            }
+        }
+        // se não possui a tag de inatividade retornar que o atendimento não está expirado
+        return false;
+    }
     static pegar_informacoes_do_atendimento(atendimento) {
         const informacoes_do_atendimento = {
             estado: "valido",
@@ -192,7 +221,7 @@ const chat_elementos = lista_atendimentos.getElementsByClassName("chat");
 const array = [];
 for (let index = 0; index < chat_elementos.length; index++) {
     const elemento_atual = chat_elementos[index];
-    array.push(Bichanu._texto_hora_valido(Bichanu._pegar_horario_atendimento(elemento_atual)));
+    array.push(Bichanu._esta_expirado(elemento_atual));
 }
 window.console.log(array);
 class Data {
