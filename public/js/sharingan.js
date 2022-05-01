@@ -161,6 +161,14 @@ class Time {
     }
 }
 class Bichanu {
+    static _a_diferenca_eh_maior_que(minutos, texto_horario) {
+        // transformar o texto em um objeto de data e hora
+        const horario_atendimento = Time.converter_texto_em_hora(texto_horario);
+        // receber a diferença da hora atual com o horário passado
+        const diferenca_do_horario_atual = Time.diferenca_hora_atual(horario_atendimento);
+        // retornar se a diferença em minutos é maior que o especificado
+        return diferenca_do_horario_atual > minutos ? true : false;
+    }
     static _pegar_nome_do_cliente(atendimento) {
         const elemento_titulo = atendimento.querySelector(".title");
         // retornar o nome do cliente ou uma string vazia caso não exista
@@ -210,18 +218,9 @@ class Bichanu {
             const texto_horario = this._pegar_horario_atendimento(atendimento);
             // caso seja um texto em formato de hora válido comparar com horário atual
             if (this._texto_hora_valido(texto_horario)) {
-                // transformar o texto em um objeto de hora
-                const horario_atendimento = Time.converter_texto_em_hora(texto_horario);
-                // receber a diferença da hora atual com o horário da última mensagem do atendimento
-                const diferenca_do_horario_atual = Time.diferenca_hora_atual(horario_atendimento);
-                if (diferenca_do_horario_atual >= 10) {
-                    // se já tiver se passado 10 minutos retornar que o atendimento está expirado
-                    return true;
-                }
-                else {
-                    // se não, retornar que o atendimento ainda não expirou
-                    return false;
-                }
+                // se já tiver se passado 10 minutos retornar que o atendimento está expirado
+                // se não, retornar que o atendimento ainda não expirou
+                return this._a_diferenca_eh_maior_que(9, texto_horario);
             }
             else {
                 // se não for uma hora válida siguinifica que já se passou mais de um dia
@@ -242,18 +241,9 @@ class Bichanu {
             const texto_horario = this._pegar_horario_atendimento(atendimento);
             // caso seja um texto em formato de hora válido comparar com horário atual
             if (this._texto_hora_valido(texto_horario)) {
-                // transformar o texto em um objeto de hora
-                const horario_atendimento = Time.converter_texto_em_hora(texto_horario);
-                // receber a diferença da hora atual com o horário da última mensagem do atendimento
-                const diferenca_do_horario_atual = Time.diferenca_hora_atual(horario_atendimento);
-                if (diferenca_do_horario_atual >= 20) {
-                    // se já tiver se passado 20 minutos retornar que o atendimento está inativo e visualizado
-                    return true;
-                }
-                else {
-                    // se não, retornar que o atendimento ainda não está inativo e visualizado
-                    return false;
-                }
+                // se já tiver passado 20 minutos retornar que o atendimento está inativo e visualizado
+                // se não, retornar que o atendimento ainda não está inativo e visualizado
+                return this._a_diferenca_eh_maior_que(19, texto_horario);
             }
             else {
                 // se não for uma hora válida siguinifica que já se passou mais de um dia
