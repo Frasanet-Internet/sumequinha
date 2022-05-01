@@ -140,6 +140,12 @@ class Time {
     }
 }
 class Bichanu {
+    static _texto_hora_valido(texto_hora) {
+        return /^\d\d:\d\d$/i.test(texto_hora);
+    }
+    static _pegar_horario_atendimento(atendimento) {
+        return atendimento.querySelector(".data_hora_ultima_msg").textContent;
+    }
     static _tem_a_tag(atendimento, nome_da_tag) {
         // converter nome da tag para minúsculo
         const nome_da_tag_em_minusculo = nome_da_tag.toLowerCase();
@@ -186,7 +192,7 @@ const chat_elementos = lista_atendimentos.getElementsByClassName("chat");
 const array = [];
 for (let index = 0; index < chat_elementos.length; index++) {
     const elemento_atual = chat_elementos[index];
-    array.push(Bichanu._deve_ser_ignorado(elemento_atual));
+    array.push(Bichanu._texto_hora_valido(Bichanu._pegar_horario_atendimento(elemento_atual)));
 }
 window.console.log(array);
 class Data {
