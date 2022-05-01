@@ -105,6 +105,46 @@ class Bichanu {
     return false
   }
 
+  static _esta_inativo_e_visualizado(atendimento: Element): boolean {
+    // pegar o nome do cliente desse atendimento
+    const nome_do_cliente = this._pegar_nome_do_cliente(atendimento)
+
+    // buscar no banco de dados se a última mensagem desse atendimento
+    // foi visualizada pelo cliente
+    if (Data.get(nome_do_cliente) == "sim") {
+
+      // pegar o texto que mostra o horário do atendimento
+      const texto_horario = this._pegar_horario_atendimento(atendimento)
+
+      // caso seja um texto em formato de hora válido comparar com horário atual
+      if (this._texto_hora_valido(texto_horario)) {
+
+        // transformar o texto em um objeto de hora
+        const horario_atendimento = Time.converter_texto_em_hora(
+          texto_horario
+        )
+
+        // receber a diferença da hora atual com o horário da última mensagem do atendimento
+        const diferenca_do_horario_atual = Time.diferenca_hora_atual(horario_atendimento)
+
+        if (diferenca_do_horario_atual >= 20) {
+          // se já tiver se passado 20 minutos retornar que o atendimento está inativo e visualizado
+          return true
+        } else {
+          // se não, retornar que o atendimento ainda não está inativo e visualizado
+          return false
+        }
+      } else {
+        // se não for uma hora válida siguinifica que já se passou mais de um dia
+        // nesse caso retornar que o atendimento está inativo e visualizado
+        return true
+      }
+    }
+    // se a última mensagem do atendente não foi visualizada
+    // retornar que o atendimento não está inativo e visualizado
+    return false
+  }
+
   static pegar_informacoes_do_atendimento(atendimento: Element) {
     const informacoes_do_atendimento: informacoes_do_atendimento = {
       estado: "valido",
@@ -121,9 +161,11 @@ const lista_atendimentos = document.querySelector(".list_dados")
 const chat_elementos = lista_atendimentos.getElementsByClassName("chat")
 const array = []
 
+Data.set("Teste IXC", "sim")
+
 for (let index = 0; index < chat_elementos.length; index++) {
   const elemento_atual = chat_elementos[index]
-  array.push(Bichanu._pegar_nome_do_cliente(elemento_atual))
+  array.push(Bichanu._esta_inativo_e_visualizado(elemento_atual))
 }
 
 window.console.log(array)
