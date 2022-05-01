@@ -291,6 +291,14 @@ class Bichanu {
         return informacoes_do_atendimento;
     }
 }
+class Controller {
+    static adicionar_funcao_ao_clicar_na_lista(funcao) {
+        // pegar o elemento correspondente a lista
+        const lista_de_atendimentos = document.querySelector(".list_dados");
+        // atrelar a função ao evento de clique do elemento
+        lista_de_atendimentos.addEventListener("click", funcao);
+    }
+}
 function sumequinha() {
     // essa parte do código está em um try catch pois pode falhar, já que os elementos
     // utilizados aqui dependem que o atendente clique no atendimento para aparecer
@@ -331,4 +339,7 @@ function sumequinha() {
         ListView.adicionar_classe_correspondente_ao_estado(atendimento, informacoes.estado, informacoes.selecionado);
     }
 }
+// primeira execução
 sumequinha();
+// rodar a funçao quando o atendente clicar na lista
+Controller.adicionar_funcao_ao_clicar_na_lista(sumequinha);

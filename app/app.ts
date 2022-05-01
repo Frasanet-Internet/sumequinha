@@ -46,4 +46,8 @@ function sumequinha() {
   }
 }
 
+// primeira execução
 sumequinha()
+
+// rodar a funçao quando o atendente clicar na lista
+Controller.adicionar_funcao_ao_clicar_na_lista(sumequinha)
