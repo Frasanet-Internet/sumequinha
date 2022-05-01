@@ -15,6 +15,28 @@ interface informacoes_do_atendimento {
 }
 
 class Bichanu {
+
+  static _tem_a_tag(atendimento: Element, nome_da_tag: string): boolean {
+    // converter nome da tag para minúsculo
+    const nome_da_tag_em_minusculo = nome_da_tag.toLowerCase();
+
+    // pegar cada item do atendimento que é uma tag
+    const tags = atendimento.getElementsByClassName("tag")
+
+    for (const tag of tags) {
+      // retirar espaços do texto da tag e converter em minúsculo
+      const texto_tag = tag.textContent.trim().toLowerCase();
+
+      // retornar verdadeiro caso encontre uma tag com o mesmo nome
+      if (texto_tag == nome_da_tag_em_minusculo) {
+        return true
+      }
+    }
+
+    // retornar falso se não houver uma tag com o nome informado
+    return false
+  }
+
   // O atendimento...
 
   static _esta_selecionado(atendimento: Element): boolean {
@@ -27,6 +49,10 @@ class Bichanu {
     const icone_whatsapp = atendimento.querySelector(".notif .fa-whatsapp")
     // retornar se o atendimento possui uma nova mensagem do cliente 
     return icone_whatsapp ? icone_whatsapp.classList.contains("piscar") : false
+  }
+
+  static _deve_ser_ignorado(atendimento: Element): boolean {
+    return false
   }
 
   static pegar_informacoes_do_atendimento(atendimento: Element) {
@@ -47,7 +73,7 @@ const array = []
 
 for (let index = 0; index < chat_elementos.length; index++) {
   const elemento_atual = chat_elementos[index]
-  array.push(Bichanu._tem_nova_mensagem(elemento_atual))
+  array.push(Bichanu._tem_a_tag(elemento_atual, "Falar com atendente (Suporte)"))
 }
 
 window.console.log(array)
