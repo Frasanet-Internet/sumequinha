@@ -114,24 +114,29 @@ class Bichanu {
     // foi visualizada pelo cliente
     if (Data.get(nome_do_cliente) == "sim") {
 
-      // pegar o texto que mostra o horário do atendimento
-      const texto_horario = this._pegar_horario_atendimento(atendimento)
-
-      // caso seja um texto em formato de hora válido comparar com horário atual
-      if (this._texto_hora_valido(texto_horario)) {
-
-        // se já tiver passado 20 minutos retornar que o atendimento está inativo e visualizado
-        // se não, retornar que o atendimento ainda não está inativo e visualizado
-        return this._a_diferenca_eh_maior_que(19, texto_horario)
-      } else {
-        // se não for uma hora válida siguinifica que já se passou mais de um dia
-        // nesse caso retornar que o atendimento está inativo e visualizado
-        return true
-      }
+      // retornar se o atendimento está inativo
+      return this._esta_inativo(atendimento)
     }
     // se a última mensagem do atendente não foi visualizada
     // retornar que o atendimento não está inativo e visualizado
     return false
+  }
+
+  static _esta_inativo(atendimento: Element): boolean {
+    // pegar o texto que mostra o horário do atendimento
+    const texto_horario = this._pegar_horario_atendimento(atendimento)
+
+    // verifiicar se é um texto em formato de hora válido
+    if (this._texto_hora_valido(texto_horario)) {
+
+      // se já tiver passado 20 minutos retornar que o atendimento está inativo
+      // se não, retornar que o atendimento não está inativo
+      return this._a_diferenca_eh_maior_que(19, texto_horario)
+    } else {
+      // se não for uma hora válida siguinifica que já se passou mais de um dia
+      // nesse caso retornar que o atendimento está inativo
+      return true
+    }
   }
 
   static pegar_informacoes_do_atendimento(atendimento: Element) {
