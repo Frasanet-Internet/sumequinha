@@ -9,7 +9,12 @@
     "skipLibCheck": true
   },
   "include": [
-    "."
+    "view",
+    "page",
+    "model/time.ts",
+    "model/bichanu.ts",
+    "model",
+    "controller"
   ],
   "exclude": [
     "node_modules"
