@@ -14,7 +14,8 @@
     "model/data.ts",
     "model/time.ts",
     "model/bichanu.ts",
-    "controller"
+    "controller",
+    "app"
   ],
   "exclude": [
     "node_modules"
