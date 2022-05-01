@@ -1,5 +1,8 @@
 
 function sumequinha() {
+  // essa parte do código está em um try catch pois pode falhar, já que os elementos
+  // utilizados aqui dependem que o atendente clique no atendimento para aparecer
+  // 
   try {
     // pegar o nome do cliente que está selecionado na lista de atendimentos
     const nome_do_cliente_selecionado = ListPage.nome_do_cliente_selecionado()
@@ -16,20 +19,31 @@ function sumequinha() {
   } catch (error) {
     // :(
   }
+
+  // essa parte aqui não precisa de um try catch pois se os elementos necessários
+  // não estiverem na tela, isso siguinifica que o atendente está acessando outras funções
+  // da página que não o chat de atendimentos, logo, a extensão não teria utilidade
+  // de qualquer forma
+  //
+  // pegar o elemento correspondente a lista de atendimentos
+  const lista_de_atendimentos = document.querySelector(".list_dados")
+  // pegar todos os atendimentos da lista
+  const atendimentos = lista_de_atendimentos.getElementsByClassName("chat")
+
+  // iteirar por cada atendimento da lista
+  for (const atendimento of atendimentos) {
+    // pegar as informações do atendimento
+    // (o estado e se está selecionado)
+    const informacoes = Bichanu.pegar_informacoes_do_atendimento(atendimento)
+
+    // mudar a cor do atendimento de acordo com o estado
+    // e se está ou não selecionado
+    ListView.adicionar_classe_correspondente_ao_estado(
+      atendimento,
+      informacoes.estado,
+      informacoes.selecionado
+    )
+  }
 }
 
 sumequinha()
-/* teste
-const lista_atendimentos = document.querySelector(".list_dados")
-const chat_elementos = lista_atendimentos.getElementsByClassName("chat")
-const array = []
-
-Data.set("Teste IXC", "não")
-
-for (let index = 0; index < chat_elementos.length; index++) {
-  const elemento_atual = chat_elementos[index]
-  array.push(Bichanu.pegar_informacoes_do_atendimento(elemento_atual))
-}
-
-window.console.log(array)
-*/
