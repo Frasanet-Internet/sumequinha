@@ -16,6 +16,12 @@ interface informacoes_do_atendimento {
 
 class Bichanu {
 
+  static _pegar_nome_do_cliente(atendimento: Element): string {
+    const elemento_titulo = atendimento.querySelector(".title")
+    // retornar o nome do cliente ou uma string vazia caso não exista
+    return elemento_titulo.textContent ? elemento_titulo.textContent : ""
+  }
+
   static _texto_hora_valido(texto_hora: string): boolean {
     return /^\d\d:\d\d$/i.test(texto_hora)
   }
@@ -117,7 +123,7 @@ const array = []
 
 for (let index = 0; index < chat_elementos.length; index++) {
   const elemento_atual = chat_elementos[index]
-  array.push(Bichanu._esta_expirado(elemento_atual))
+  array.push(Bichanu._pegar_nome_do_cliente(elemento_atual))
 }
 
 window.console.log(array)

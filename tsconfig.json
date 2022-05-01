@@ -11,9 +11,9 @@
   "include": [
     "view",
     "page",
+    "model/data.ts",
     "model/time.ts",
     "model/bichanu.ts",
-    "model",
     "controller"
   ],
   "exclude": [

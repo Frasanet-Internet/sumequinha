@@ -108,6 +108,27 @@ class ListPage {
         }
     }
 }
+class Data {
+    // salvar a informação de que a última mensagem do atendente foi lida
+    // usando o nome do cliente como índice
+    static set(nome_cliente, ultima_mensagem_do_atendente_foi_lida) {
+        return localStorage.setItem(nome_cliente, ultima_mensagem_do_atendente_foi_lida);
+    }
+    static get(nome_cliente) {
+        // pegar o valor armazenado usando o nome do cliente como índice
+        const valor = localStorage.getItem(nome_cliente);
+        // verificar se o valor retornado é nulo
+        if (valor) {
+            // retornar se a última mensagem do atendente foi lida
+            return valor;
+        }
+        else {
+            // caso o índice não exista no armazenamento local crie ele usando "não" como padrão
+            this.set(nome_cliente, "não");
+            return "não";
+        }
+    }
+}
 class Time {
     static converter_texto_em_hora(texto) {
         // criar um objeto Date
@@ -140,6 +161,11 @@ class Time {
     }
 }
 class Bichanu {
+    static _pegar_nome_do_cliente(atendimento) {
+        const elemento_titulo = atendimento.querySelector(".title");
+        // retornar o nome do cliente ou uma string vazia caso não exista
+        return elemento_titulo.textContent ? elemento_titulo.textContent : "";
+    }
     static _texto_hora_valido(texto_hora) {
         return /^\d\d:\d\d$/i.test(texto_hora);
     }
@@ -221,27 +247,6 @@ const chat_elementos = lista_atendimentos.getElementsByClassName("chat");
 const array = [];
 for (let index = 0; index < chat_elementos.length; index++) {
     const elemento_atual = chat_elementos[index];
-    array.push(Bichanu._esta_expirado(elemento_atual));
+    array.push(Bichanu._pegar_nome_do_cliente(elemento_atual));
 }
 window.console.log(array);
-class Data {
-    // salvar a informação de que a última mensagem do atendente foi lida
-    // usando o nome do cliente como índice
-    static set(nome_cliente, ultima_mensagem_do_atendente_foi_lida) {
-        return localStorage.setItem(nome_cliente, ultima_mensagem_do_atendente_foi_lida);
-    }
-    static get(nome_cliente) {
-        // pegar o valor armazenado usando o nome do cliente como índice
-        const valor = localStorage.getItem(nome_cliente);
-        // verificar se o valor retornado é nulo
-        if (valor) {
-            // retornar se a última mensagem do atendente foi lida
-            return valor;
-        }
-        else {
-            // caso o índice não exista no armazenamento local crie ele usando "não" como padrão
-            this.set(nome_cliente, "não");
-            return "não";
-        }
-    }
-}
