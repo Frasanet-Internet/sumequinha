@@ -168,7 +168,8 @@ class Bichanu {
         return icone_whatsapp ? icone_whatsapp.classList.contains("piscar") : false;
     }
     static _deve_ser_ignorado(atendimento) {
-        return false;
+        // retornar se o atendimento possui a tag para não encerrar
+        return this._tem_a_tag(atendimento, "(bichanu) não encerrar");
     }
     static pegar_informacoes_do_atendimento(atendimento) {
         const informacoes_do_atendimento = {
@@ -185,7 +186,7 @@ const chat_elementos = lista_atendimentos.getElementsByClassName("chat");
 const array = [];
 for (let index = 0; index < chat_elementos.length; index++) {
     const elemento_atual = chat_elementos[index];
-    array.push(Bichanu._tem_a_tag(elemento_atual, "Falar com atendente (Suporte)"));
+    array.push(Bichanu._deve_ser_ignorado(elemento_atual));
 }
 window.console.log(array);
 class Data {
