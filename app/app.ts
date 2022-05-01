@@ -54,3 +54,6 @@ Controller.acionar_funcao_ao_clicar_na_lista(sumequinha)
 
 // rodar a função a cada segundo
 Controller.acionar_funcao_a_cada_segundo(sumequinha)
+
+// ^^
+window.console.log("^^")
