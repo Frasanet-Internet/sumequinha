@@ -141,11 +141,39 @@ class Bichanu {
 
   static pegar_informacoes_do_atendimento(atendimento: Element) {
     const informacoes_do_atendimento: informacoes_do_atendimento = {
+      // definir que o estado inicial do atendimento é como "válido"
       estado: "valido",
       // verificar se o atendimento está selecionado
       selecionado: this._esta_selecionado(atendimento)
     }
 
+    // verificar se tem nova mensagem no atendimento
+    if (this._tem_nova_mensagem(atendimento)) {
+      informacoes_do_atendimento.estado = "com_nova_mensagem"
+    }
+
+    // verificar se o atendimento tem a tag "não encerrar"
+    else if (this._deve_ser_ignorado(atendimento)) {
+      informacoes_do_atendimento.estado = "ignorado"
+    }
+
+    // verificar se o atendimento tem a tag de "inatividade" e se passou 10 minutos
+    else if (this._esta_expirado(atendimento)) {
+      informacoes_do_atendimento.estado = "expirado"
+    }
+
+    // verificar se a última mensagem do atendimento foi a 20 minutos
+    // e foi visualizada pelo cliente
+    else if (this._esta_inativo_e_visualizado(atendimento)) {
+      informacoes_do_atendimento.estado = "inativo_visualizado"
+    }
+
+    // verificar se a última mensagem do atendimento foi a 20 minutos
+    else if (this._esta_inativo(atendimento)) {
+      informacoes_do_atendimento.estado = "inativo"
+    }
+
+    // retornar as informações
     return informacoes_do_atendimento
   }
 }
@@ -155,11 +183,11 @@ const lista_atendimentos = document.querySelector(".list_dados")
 const chat_elementos = lista_atendimentos.getElementsByClassName("chat")
 const array = []
 
-Data.set("Teste IXC", "sim")
+Data.set("Teste IXC", "não")
 
 for (let index = 0; index < chat_elementos.length; index++) {
   const elemento_atual = chat_elementos[index]
-  array.push(Bichanu._esta_inativo_e_visualizado(elemento_atual))
+  array.push(Bichanu.pegar_informacoes_do_atendimento(elemento_atual))
 }
 
 window.console.log(array)
