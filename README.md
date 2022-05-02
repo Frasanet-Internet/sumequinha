@@ -1,7 +1,7 @@
-![Frasachanu Logo](/img/frasachanu_128.png)
+![Sumequinha Logo](/img/sumequinha_128.png)
 
-# Frasachanu
+# Sumequinha
 
 Um timer simples que muda as cores dos itens na lista de atendimentos da plataforma Opa! chat.
 
-Feito com carinho por Wilton Ribeiro :)
+Feito com <3 por Wilton Ribeiro :)

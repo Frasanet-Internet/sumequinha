@@ -1,16 +1,15 @@
 {
-  "name": "Frasachanu",
+  "name": "Sumequinha",
   "description": "Um timer simples que muda as cores dos itens na lista de atendimentos da plataforma Opa! chat.",
   "version": "0.1",
   "manifest_version": 3,
   "action": {
     "default_icon": {
-      "16": "img/frasachanu_16.png",
-      "24": "img/frasachanu_24.png",
-      "32": "img/frasachanu_32.png",
-      "64": "img/frasachanu_64.png",
-      "128": "img/frasachanu_128.png",
-      "1024": "img/frasachanu_1024.png"
+      "32": "img/sumequinha_32.png",
+      "64": "img/sumequinha_64.png",
+      "128": "img/sumequinha_128.png",
+      "1024": "img/sumequinha_1024.png",
+      "2048": "img/sumequinha_2092.png"
     }
   },
   "background": {
