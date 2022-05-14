@@ -52,8 +52,8 @@ sumequinha()
 // rodar a funçao quando o atendente clicar na lista
 Controller.acionar_funcao_ao_clicar_na_lista(sumequinha)
 
-// rodar a função a cada segundo
-Controller.acionar_funcao_a_cada_segundo(sumequinha)
+// rodar a função a cada 50 milissegundos
+Controller.acionar_funcao_a_cada_50_milissegundos(sumequinha)
 
 // ^^
 window.console.log("^^")

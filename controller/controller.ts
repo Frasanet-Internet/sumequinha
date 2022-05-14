@@ -7,10 +7,10 @@ class Controller {
     lista_de_atendimentos.addEventListener("click", funcao)
   }
 
-  static acionar_funcao_a_cada_segundo(funcao): void {
-    // executar a função dada a cada 1 segundo 
+  static acionar_funcao_a_cada_50_milissegundos(funcao): void {
+    // executar a função dada a cada 50 milissegundos
     setInterval(() => {
       funcao()
-    }, 1000)
+    }, 50)
   }
 }

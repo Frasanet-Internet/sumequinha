@@ -298,11 +298,11 @@ class Controller {
         // atrelar a função ao evento de clique do elemento
         lista_de_atendimentos.addEventListener("click", funcao);
     }
-    static acionar_funcao_a_cada_segundo(funcao) {
-        // executar a função dada a cada 1 segundo 
+    static acionar_funcao_a_cada_50_milissegundos(funcao) {
+        // executar a função dada a cada 50 milissegundos
         setInterval(() => {
             funcao();
-        }, 1000);
+        }, 50);
     }
 }
 function sumequinha() {
@@ -349,7 +349,7 @@ function sumequinha() {
 sumequinha();
 // rodar a funçao quando o atendente clicar na lista
 Controller.acionar_funcao_ao_clicar_na_lista(sumequinha);
-// rodar a função a cada segundo
-Controller.acionar_funcao_a_cada_segundo(sumequinha);
+// rodar a função a cada 50 milissegundos
+Controller.acionar_funcao_a_cada_50_milissegundos(sumequinha);
 // ^^
 window.console.log("^^");
