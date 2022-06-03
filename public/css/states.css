@@ -5,40 +5,40 @@ div .data_hora_ultima_msg {
 }
 
 div .b_com_nova_mensagem {
-  background: linear-gradient(135deg, #179201 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, rgb(23, 146, 1) 0 100%) !important;
 }
 div .b_ignorado {
-  background: linear-gradient(135deg, #b4b4b4 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, rgb(180, 180, 180) 0 100%) !important;
 }
 div .b_expirado {
-  background: linear-gradient(135deg, #920101 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, rgb(146, 1, 1) 0 100%) !important;
 }
 div .b_inativo_visualizado {
-  background: linear-gradient(135deg, #926401 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, rgb(146, 100, 1) 0 100%) !important;
 }
 div .b_inativo {
-  background: linear-gradient(135deg, #f08080 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, #f08080 0 100%) !important;
 }
 div .b_valido {
-  background: linear-gradient(135deg, #014092 0 50%, #3a3a4d 0 100%) !important;
+  background: linear-gradient(135deg, rgb(58, 58, 77) 0 50%, rgb(1, 64, 146) 0 100%) !important;
 }
 div .bs_com_nova_mensagem {
-  background: linear-gradient(135deg, #179201 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, rgb(23, 146, 1) 0 100%) !important;
 }
 div .bs_ignorado {
-  background: linear-gradient(135deg, #b4b4b4 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, rgb(180, 180, 180) 0 100%) !important;
 }
 div .bs_expirado {
-  background: linear-gradient(135deg, #920101 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, rgb(146, 1, 1) 0 100%) !important;
 }
 div .bs_inativo_visualizado {
-  background: linear-gradient(135deg, #926401 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, rgb(146, 100, 1) 0 100%) !important;
 }
 div .bs_inativo {
-  background: linear-gradient(135deg, #f08080 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, #f08080 0 100%) !important;
 }
 div .bs_valido {
-  background: linear-gradient(135deg, #014092 0 50%, #17171c 0 100%) !important;
+  background: linear-gradient(135deg, rgb(23, 23, 28) 0 50%, rgb(1, 64, 146) 0 100%) !important;
 }
 
 /*# sourceMappingURL=states.css.map */
