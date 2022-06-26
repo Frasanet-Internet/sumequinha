@@ -302,7 +302,7 @@ class Controller {
         // executar a função dada a cada 50 milissegundos
         setInterval(() => {
             funcao();
-        }, 50);
+        }, 333);
     }
 }
 function sumequinha() {
