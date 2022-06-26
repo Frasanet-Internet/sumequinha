@@ -1,7 +1,7 @@
 {
   "name": "Sumequinha",
   "description": "Um timer simples que muda as cores dos itens na lista de atendimentos da plataforma Opa! chat.",
-  "version": "0.3",
+  "version": "0.4",
   "manifest_version": 3,
   "action": {
     "default_icon": {
